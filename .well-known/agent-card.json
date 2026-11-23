@@ -6,13 +6,13 @@
         "description": "Verified by Concordium badge — on-chain agent identity in a CIS-8004 registry (TESTNET)",
         "params": {
           "contracts": {
-            "cis8": "ccd:<TESTNET_GENESIS_HASH>:12801.0",
-            "cis8004": "ccd:<TESTNET_GENESIS_HASH>:12802.0"
+            "cis8": "ccd:4221332d34e1694168c2a0c0b3fd0f27:12801.0",
+            "cis8004": "ccd:4221332d34e1694168c2a0c0b3fd0f27:12802.0"
           },
           "owner": {
-            "account": "ccd:<TESTNET_GENESIS_HASH>:3iJjRtvtLC13HHYasLQ61zhvL2QPcfDTdh2fxguqKhbKAgiCLk"
+            "account": "ccd:4221332d34e1694168c2a0c0b3fd0f27:3iJjRtvtLC13HHYasLQ61zhvL2QPcfDTdh2fxguqKhbKAgiCLk"
           },
-          "tokenAddress": "ccd:<TESTNET_GENESIS_HASH>/cis-2:<BADGE_TOKEN_ADDRESS — FILL AFTER MINT>",
+          "tokenAddress": "ccd:4221332d34e1694168c2a0c0b3fd0f27/cis-2:<BADGE_TOKEN_ADDRESS — FILL AFTER MINT>",
           "verification": {
             "docs": "https://docs.concordium.com/en/mainnet/technical-reference/agent-registry/concordium-badge.html",
             "mcp": "https://agent-registry-mcp.concordium.com/mcp",
@@ -53,7 +53,7 @@
   "registrations": [
     {
       "agentId": 0,
-      "agentRegistry": "ccd:<TESTNET_GENESIS_HASH>:12802.0"
+      "agentRegistry": "ccd:4221332d34e1694168c2a0c0b3fd0f27:12802.0"
     }
   ],
   "services": [
