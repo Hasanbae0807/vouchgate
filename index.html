@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VouchGate — AgentVouch Badge Check</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <h1>VouchGate</h1>
+  <p class="sub">
+    Accountability check for the <strong>AgentVouch</strong> operator service
+    (reputation &amp; endorsement graph for Binance Agent ID holders, BNB Chain).
+    The operator is registered in the Concordium Agent Registry (CIS-8004, testnet);
+    this page reads the live badge status and the live endorsement-graph stats.
+  </p>
+
+  <section class="card">
+    <h2>Verified by Concordium badge</h2>
+    <form id="badgeForm">
+      <label for="badgeInput">Badge (CIS-2 token address, Base58Check)</label>
+      <input id="badgeInput" type="text" placeholder="e.g. Mf22soLh1NuZYFgBK8iSs" autocomplete="off">
+      <button type="submit">Check badge</button>
+    </form>
+    <p id="badgeStatus" class="muted">No badge configured yet — registration happens in build phase 2.
+      Paste a badge token address to try the live check.</p>
+    <pre id="badgeResult" hidden></pre>
+  </section>
+
+  <section class="card">
+    <h2>AgentVouch graph (BNB Chain, live)</h2>
+    <ul class="stats">
+      <li>Unique Agent ID interactors: <strong id="statInteractors">…</strong></li>
+      <li>Total endorsements made: <strong id="statEndorsements">…</strong></li>
+      <li>Contract: <code>0x50c3ec6393e62090a349b717247890ac94e8f639</code></li>
+    </ul>
+    <p class="muted">
+      Gate rule (VouchGate): a vouch is displayed as <em>trusted</em> only when the
+      operator badge above resolves to status <strong>Active</strong> with a matching
+      Agent Card hash. Otherwise the graph is shown as unverified.
+    </p>
+    <p id="gateVerdict" class="muted">Gate verdict: waiting for badge check…</p>
+  </section>
+
+  <footer class="muted">
+    Testnet demo for the Concordium Trusted Agents Hackathon (Encode Club × Concordium).
+    Badge data: agent-registry-mcp.concordium.com · Graph data: public BSC RPC.
+    This page never asks for keys or signatures.
+  </footer>
+</main>
+<script src="app.js"></script>
+</body>
+</html>

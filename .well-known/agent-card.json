@@ -1,0 +1,117 @@
+{
+  "active": true,
+  "capabilities": {
+    "extensions": [
+      {
+        "description": "Verified by Concordium badge — on-chain agent identity in a CIS-8004 registry (TESTNET)",
+        "params": {
+          "contracts": {
+            "cis8": "ccd:<TESTNET_GENESIS_HASH>:12801.0",
+            "cis8004": "ccd:<TESTNET_GENESIS_HASH>:12802.0"
+          },
+          "owner": {
+            "account": "ccd:<TESTNET_GENESIS_HASH>:3iJjRtvtLC13HHYasLQ61zhvL2QPcfDTdh2fxguqKhbKAgiCLk"
+          },
+          "tokenAddress": "ccd:<TESTNET_GENESIS_HASH>/cis-2:<BADGE_TOKEN_ADDRESS — FILL AFTER MINT>",
+          "verification": {
+            "docs": "https://docs.concordium.com/en/mainnet/technical-reference/agent-registry/concordium-badge.html",
+            "mcp": "https://agent-registry-mcp.concordium.com/mcp",
+            "service": "Concordium Agent Registry",
+            "verifyUrl": "https://agent-registry-mcp.concordium.com/v1/badge-check/<BADGE_TOKEN_ADDRESS — FILL AFTER MINT>"
+          },
+          "verify": "Resolve tokenAddress via CIS-8004 agent_of; confirm owner + status is Active + card SHA-256 equals metadata_hash."
+        },
+        "required": false,
+        "uri": "https://docs.concordium.com/a2a-extensions/concordium-badge/v1"
+      }
+    ],
+    "pushNotifications": false,
+    "streaming": false
+  },
+  "defaultInputModes": [
+    "text/plain",
+    "application/json"
+  ],
+  "defaultOutputModes": [
+    "text/plain",
+    "application/json"
+  ],
+  "description": "AgentVouch is a reputation and endorsement graph service for Binance Agent ID (name.ai) holders on BNB Chain. Holders register public profile cards and endorse each other for skills, forming an on-chain trust graph that any dApp or agent can query before deciding whom to work with. This registration covers the AgentVouch OPERATOR SERVICE — the public web reader and trust-score API operated by the service's deployer — not the endorsement smart contract itself. The operator's BNB Chain address is linked to this Concordium registration by a CIS-8 external-key binding, so counterparties can verify that an accountable, identity-verified operator stands behind the service. The AgentVouch contract itself is asset-free by construction: no payable functions, no token handling, no approvals, and no admin keys.",
+  "documentationUrl": "https://github.com/Hasanbae0807/agentvouch",
+  "externalReferences": [
+    {
+      "kind": "Cis8",
+      "note": "CIS-8 binding (testnet registry 12801.0) to the operator's BNB Chain address 0xcc64fd7BadF9e9f83ee301BdfB802f32705Cd760 — the Agentic Wallet that deployed and operates AgentVouch and holds the Agent ID handle 'begundaall'. The AgentVouch contract on BNB Chain is 0x50c3ec6393e62090a349b717247890ac94e8f639 (chain id 56)."
+    }
+  ],
+  "image": "https://hasanbae0807.github.io/vouchgate/icon.png",
+  "name": "AgentVouch",
+  "provider": {
+    "organization": "AgentVouch operator (solo builder, Tangerang, Indonesia)",
+    "url": "https://hasanbae0807.github.io/agentvouch/"
+  },
+  "registrations": [
+    {
+      "agentId": 0,
+      "agentRegistry": "ccd:<TESTNET_GENESIS_HASH>:12802.0"
+    }
+  ],
+  "services": [
+    {
+      "endpoint": "https://hasanbae0807.github.io/vouchgate/.well-known/agent-card.json",
+      "name": "A2A",
+      "version": "1.0"
+    },
+    {
+      "endpoint": "https://hasanbae0807.github.io/agentvouch/",
+      "name": "web",
+      "version": "1.0"
+    }
+  ],
+  "skills": [
+    {
+      "description": "Returns the AgentVouch profile card (primary skill, bio) registered for a given Agent ID handle (name.ai).",
+      "id": "read-profile",
+      "name": "Read Agent ID profile",
+      "tags": [
+        "agent-id",
+        "profile",
+        "reputation",
+        "bsc"
+      ]
+    },
+    {
+      "description": "Returns endorsement counts (total and per-skill) and endorsement checks for Agent ID handles from the on-chain AgentVouch graph on BNB Chain (contract 0x50c3ec6393e62090a349b717247890ac94e8f639).",
+      "id": "read-endorsements",
+      "name": "Read endorsements",
+      "tags": [
+        "endorsement",
+        "trust-graph",
+        "reputation",
+        "bsc"
+      ]
+    },
+    {
+      "description": "Paid micro-query (x402 on Concordium testnet): returns a trust score for a BNB Chain address derived from the AgentVouch endorsement graph, gated on the operator's Verified by Concordium badge status.",
+      "id": "trust-score",
+      "name": "Trust score query (x402)",
+      "tags": [
+        "x402",
+        "trust-score",
+        "payments",
+        "concordium"
+      ]
+    }
+  ],
+  "supportedInterfaces": [
+    {
+      "protocolBinding": "HTTP+JSON",
+      "protocolVersion": "1.0",
+      "url": "https://hasanbae0807.github.io/vouchgate/.well-known/agent-card.json"
+    }
+  ],
+  "type": "https://eips.ethereum.org/EIPS/eip-8004#registration-v1",
+  "url": "https://hasanbae0807.github.io/vouchgate/.well-known/agent-card.json",
+  "version": "1.0.0",
+  "x402Support": false
+}
